@@ -1,5 +1,5 @@
 //
-//  SortStatisticProtocol.swift
+//  SortEnums.swift
 //  SortStatistic
 //
 //  Created by Oleksii Kolomiiets on 5/10/18.
@@ -8,15 +8,10 @@
 
 import Foundation
 
-protocol SortStatisticProtocol {
-    var title: String { get }
-    var descriprion: ArrayType { get }
-}
-
 enum ArrayType {
-    case random(Int, Int)
-    case ascending(Int, Int)
-    case descending(Int, Int)
+    case random(Int, Double)
+    case ascending(Int, Double)
+    case descending(Int, Double)
     
     var description: String {
         switch self {
@@ -49,4 +44,4 @@ enum SortMethod: Int {
     }
 }
 
-var capacityOfArray = 1000
+var capacityOfArray = 10

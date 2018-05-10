@@ -21,9 +21,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ma-Kv-Brd">
-                                <rect key="frame" x="75" y="164" width="225" height="52"/>
+                                <rect key="frame" x="25" y="164" width="325" height="66"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <state key="normal" title="Press to start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -31,17 +31,35 @@
                                     <action selector="tappedStartButton:" destination="gO0-X9-pkl" eventType="touchUpInside" id="g78-2m-khm"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" minValue="1000" maxValue="1006" translatesAutoresizingMaskIntoConstraints="NO" id="n6N-Of-0fN">
+                                <rect key="frame" x="98" y="330" width="179" height="31"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEr-1x-d40">
+                                <rect key="frame" x="100" y="280" width="175" height="40"/>
+                                <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="0.6022335123" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="4ma-Kv-Brd" firstAttribute="leading" secondItem="atf-gd-SIY" secondAttribute="leading" constant="75" id="Tuz-Dv-WYL"/>
-                            <constraint firstItem="atf-gd-SIY" firstAttribute="trailing" secondItem="4ma-Kv-Brd" secondAttribute="trailing" constant="75" id="b68-3F-f20"/>
+                            <constraint firstItem="bEr-1x-d40" firstAttribute="leading" secondItem="atf-gd-SIY" secondAttribute="leading" constant="100" id="42R-mq-daI"/>
+                            <constraint firstItem="atf-gd-SIY" firstAttribute="trailing" secondItem="bEr-1x-d40" secondAttribute="trailing" constant="100" id="BOj-WM-Fqf"/>
+                            <constraint firstItem="bEr-1x-d40" firstAttribute="top" secondItem="4ma-Kv-Brd" secondAttribute="bottom" constant="50" id="H1K-4c-T6E"/>
+                            <constraint firstItem="n6N-Of-0fN" firstAttribute="leading" secondItem="atf-gd-SIY" secondAttribute="leading" constant="100" id="LJ4-1t-aMW"/>
+                            <constraint firstItem="4ma-Kv-Brd" firstAttribute="leading" secondItem="atf-gd-SIY" secondAttribute="leading" constant="25" id="Tuz-Dv-WYL"/>
+                            <constraint firstItem="atf-gd-SIY" firstAttribute="trailing" secondItem="4ma-Kv-Brd" secondAttribute="trailing" constant="25" id="b68-3F-f20"/>
                             <constraint firstItem="4ma-Kv-Brd" firstAttribute="top" secondItem="atf-gd-SIY" secondAttribute="top" constant="100" id="duF-MZ-LOt"/>
+                            <constraint firstItem="n6N-Of-0fN" firstAttribute="top" secondItem="bEr-1x-d40" secondAttribute="bottom" constant="10" id="sbZ-2R-BO4"/>
+                            <constraint firstItem="atf-gd-SIY" firstAttribute="trailing" secondItem="n6N-Of-0fN" secondAttribute="trailing" constant="100" id="xdF-4l-RI1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="atf-gd-SIY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Uhj-my-Mdd"/>
                     <connections>
+                        <outlet property="countOfElementInArray" destination="bEr-1x-d40" id="PC6-tk-pFX"/>
+                        <outlet property="selectorForArrayCount" destination="n6N-Of-0fN" id="bN5-2U-veX"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="segueToStatisticInfo" id="cWR-63-RqG"/>
                     </connections>
                 </viewController>

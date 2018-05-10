@@ -14,8 +14,10 @@
 		F20A30A220A440B500394C0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F20A30A020A440B500394C0A /* LaunchScreen.storyboard */; };
 		F20A30AB20A444F200394C0A /* StatisticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A30AA20A444F200394C0A /* StatisticTableViewController.swift */; };
 		F20A30AD20A4634600394C0A /* StartingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A30AC20A4634600394C0A /* StartingViewController.swift */; };
-		F20A30B020A475DD00394C0A /* SortStatisticProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A30AF20A475DD00394C0A /* SortStatisticProtocol.swift */; };
+		F20A30B020A475DD00394C0A /* SortEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A30AF20A475DD00394C0A /* SortEnums.swift */; };
 		F20A30B420A47AED00394C0A /* StaticInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A30B320A47AED00394C0A /* StaticInfoTableViewCell.swift */; };
+		F20A30B620A4869000394C0A /* SortModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A30B520A4869000394C0A /* SortModelProtocol.swift */; };
+		F20A30B820A488DD00394C0A /* SortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A30B720A488DD00394C0A /* SortModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +30,10 @@
 		F20A30A320A440B500394C0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F20A30AA20A444F200394C0A /* StatisticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticTableViewController.swift; sourceTree = "<group>"; };
 		F20A30AC20A4634600394C0A /* StartingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingViewController.swift; sourceTree = "<group>"; };
-		F20A30AF20A475DD00394C0A /* SortStatisticProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortStatisticProtocol.swift; sourceTree = "<group>"; };
+		F20A30AF20A475DD00394C0A /* SortEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortEnums.swift; sourceTree = "<group>"; };
 		F20A30B320A47AED00394C0A /* StaticInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfoTableViewCell.swift; sourceTree = "<group>"; };
+		F20A30B520A4869000394C0A /* SortModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModelProtocol.swift; sourceTree = "<group>"; };
+		F20A30B720A488DD00394C0A /* SortModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +66,10 @@
 		F20A309620A440A800394C0A /* SortStatistic */ = {
 			isa = PBXGroup;
 			children = (
-				F20A30AF20A475DD00394C0A /* SortStatisticProtocol.swift */,
-				F20A30B320A47AED00394C0A /* StaticInfoTableViewCell.swift */,
+				F20A30AF20A475DD00394C0A /* SortEnums.swift */,
+				F20A30B720A488DD00394C0A /* SortModel.swift */,
+				F20A30BA20A48B0100394C0A /* UI Elements */,
+				F20A30B920A48AF000394C0A /* Protocols */,
 				F20A30AE20A4757F00394C0A /* ViewControllers */,
 				F20A309B20A440A800394C0A /* Main.storyboard */,
 				F20A30A320A440B500394C0A /* Info.plist */,
@@ -90,6 +96,22 @@
 				F20A30AA20A444F200394C0A /* StatisticTableViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F20A30B920A48AF000394C0A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F20A30B520A4869000394C0A /* SortModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F20A30BA20A48B0100394C0A /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				F20A30B320A47AED00394C0A /* StaticInfoTableViewCell.swift */,
+			);
+			path = "UI Elements";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,8 +185,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F20A30B020A475DD00394C0A /* SortStatisticProtocol.swift in Sources */,
+				F20A30B020A475DD00394C0A /* SortEnums.swift in Sources */,
+				F20A30B620A4869000394C0A /* SortModelProtocol.swift in Sources */,
 				F20A30AB20A444F200394C0A /* StatisticTableViewController.swift in Sources */,
+				F20A30B820A488DD00394C0A /* SortModel.swift in Sources */,
 				F20A30B420A47AED00394C0A /* StaticInfoTableViewCell.swift in Sources */,
 				F20A309A20A440A800394C0A /* StatisticInfoViewController.swift in Sources */,
 				F20A30AD20A4634600394C0A /* StartingViewController.swift in Sources */,

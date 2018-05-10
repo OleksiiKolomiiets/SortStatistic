@@ -21,6 +21,8 @@ class StartingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
    
+    @IBOutlet weak var countOfElementInArray: UILabel!
+    @IBOutlet weak var selectorForArrayCount: UISlider!
     @IBAction func tappedStartButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let statisticVC = storyboard.instantiateViewController(withIdentifier: "statisticInfoVC") as? StatisticInfoViewController else { return }

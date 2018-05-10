@@ -18,6 +18,7 @@ class StatisticTableViewController: UITableViewController {
         }
         return count
     }
+    var sortModel = SortModel()
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,14 +49,14 @@ class StatisticTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "statisticCell", for: indexPath) as? StaticInfoTableViewCell else { return tableView.dequeueReusableCell(withIdentifier: "statisticCell", for: indexPath) }
-        guard let sortMethod = SortMethod(rawValue: indexPath.row) else { return tableView.dequeueReusableCell(withIdentifier: "statisticCell", for: indexPath) }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "statisticCell", for: indexPath) as? StaticInfoTableViewCell, let sortMethod = SortMethod(rawValue: indexPath.row)
+            else { return tableView.dequeueReusableCell(withIdentifier: "statisticCell", for: indexPath) }
+        self.sortModel.methodForSort = sortMethod
         cell.configure(
-            with: sortMethod ,
-            rInfo: .random(capacityOfArray, 20) ,
-            aInfo: .ascending(capacityOfArray, 20),
-            dInfo: .descending(capacityOfArray, 20))
-        
+            with: sortMethod,
+            rInfo: .random(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[0]) ,
+            aInfo: .ascending(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[1]),
+            dInfo: .descending(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[2]))
       
         // Configure the cell...
 
