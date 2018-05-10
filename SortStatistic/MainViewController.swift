@@ -8,10 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let containerView = storyboard.instantiateViewController(withIdentifier: "statisticTVC") as? StatisticTableViewController else { return }
+        self.navigationController?.pushViewController(containerView, animated: true)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
