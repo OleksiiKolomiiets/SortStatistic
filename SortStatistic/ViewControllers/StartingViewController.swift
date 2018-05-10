@@ -12,15 +12,25 @@ class StartingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let number = Int(countSelectorSlider.value)
+        self.countOfArrayElments = Int(number)
+        self.countOfElementInArray.text = String(number)
         // Do any additional setup after loading the view.
     }
+    
+    var countOfArrayElments: Int?
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-   
+    @IBOutlet weak var countSelectorSlider: UISlider!
+    
+    @IBAction func changeValue(_ sender: UISlider) {
+        let value = Int(sender.value)
+        countOfElementInArray.text = String(value)
+    }
+    
     @IBOutlet weak var countOfElementInArray: UILabel!
     @IBOutlet weak var selectorForArrayCount: UISlider!
     @IBAction func tappedStartButton(_ sender: UIButton) {
