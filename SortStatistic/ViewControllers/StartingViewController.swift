@@ -29,6 +29,7 @@ class StartingViewController: UIViewController {
     @IBAction func changeValue(_ sender: UISlider) {
         let value = Int(sender.value)
         countOfElementInArray.text = String(value)
+        countOfArrayElments = value
     }
     
     @IBOutlet weak var countOfElementInArray: UILabel!
@@ -36,7 +37,7 @@ class StartingViewController: UIViewController {
     @IBAction func tappedStartButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let statisticVC = storyboard.instantiateViewController(withIdentifier: "statisticInfoVC") as? StatisticInfoViewController else { return }
-        
+        statisticVC.countOfArrayElments = self.countOfArrayElments
         self.navigationController?.pushViewController(statisticVC, animated: true)
     }
     

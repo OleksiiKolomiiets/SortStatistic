@@ -9,7 +9,7 @@
 import Foundation
 
 class SortModel: SortModelProtocol {
-    private(set) var capacityOfArray: Int = 10000
+    var capacityOfArray: Int = 10000
     typealias resultingTime = (random: Int, asc: Int, desc: Int)
     
     private var precision = 1000.0
