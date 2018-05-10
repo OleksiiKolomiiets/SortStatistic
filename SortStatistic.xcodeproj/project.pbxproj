@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		F20A309820A440A800394C0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A309720A440A800394C0A /* AppDelegate.swift */; };
-		F20A309A20A440A800394C0A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A309920A440A800394C0A /* MainViewController.swift */; };
+		F20A309A20A440A800394C0A /* StatisticInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A309920A440A800394C0A /* StatisticInfoViewController.swift */; };
 		F20A309D20A440A800394C0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F20A309B20A440A800394C0A /* Main.storyboard */; };
 		F20A309F20A440B500394C0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20A309E20A440B500394C0A /* Assets.xcassets */; };
 		F20A30A220A440B500394C0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F20A30A020A440B500394C0A /* LaunchScreen.storyboard */; };
 		F20A30AB20A444F200394C0A /* StatisticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A30AA20A444F200394C0A /* StatisticTableViewController.swift */; };
+		F20A30AD20A4634600394C0A /* StartingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A30AC20A4634600394C0A /* StartingViewController.swift */; };
+		F20A30B020A475DD00394C0A /* SortStatisticProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A30AF20A475DD00394C0A /* SortStatisticProtocol.swift */; };
+		F20A30B420A47AED00394C0A /* StaticInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A30B320A47AED00394C0A /* StaticInfoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F20A309420A440A800394C0A /* SortStatistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SortStatistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20A309720A440A800394C0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F20A309920A440A800394C0A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F20A309920A440A800394C0A /* StatisticInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticInfoViewController.swift; sourceTree = "<group>"; };
 		F20A309C20A440A800394C0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F20A309E20A440B500394C0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F20A30A120A440B500394C0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F20A30A320A440B500394C0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F20A30AA20A444F200394C0A /* StatisticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticTableViewController.swift; sourceTree = "<group>"; };
+		F20A30AC20A4634600394C0A /* StartingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingViewController.swift; sourceTree = "<group>"; };
+		F20A30AF20A475DD00394C0A /* SortStatisticProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortStatisticProtocol.swift; sourceTree = "<group>"; };
+		F20A30B320A47AED00394C0A /* StaticInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +62,9 @@
 		F20A309620A440A800394C0A /* SortStatistic */ = {
 			isa = PBXGroup;
 			children = (
-				F20A309920A440A800394C0A /* MainViewController.swift */,
-				F20A30AA20A444F200394C0A /* StatisticTableViewController.swift */,
+				F20A30AF20A475DD00394C0A /* SortStatisticProtocol.swift */,
+				F20A30B320A47AED00394C0A /* StaticInfoTableViewCell.swift */,
+				F20A30AE20A4757F00394C0A /* ViewControllers */,
 				F20A309B20A440A800394C0A /* Main.storyboard */,
 				F20A30A320A440B500394C0A /* Info.plist */,
 				F20A30A920A4434F00394C0A /* Supporting Files */,
@@ -73,6 +80,16 @@
 				F20A30A020A440B500394C0A /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F20A30AE20A4757F00394C0A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F20A30AC20A4634600394C0A /* StartingViewController.swift */,
+				F20A309920A440A800394C0A /* StatisticInfoViewController.swift */,
+				F20A30AA20A444F200394C0A /* StatisticTableViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,8 +163,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F20A30B020A475DD00394C0A /* SortStatisticProtocol.swift in Sources */,
 				F20A30AB20A444F200394C0A /* StatisticTableViewController.swift in Sources */,
-				F20A309A20A440A800394C0A /* MainViewController.swift in Sources */,
+				F20A30B420A47AED00394C0A /* StaticInfoTableViewCell.swift in Sources */,
+				F20A309A20A440A800394C0A /* StatisticInfoViewController.swift in Sources */,
+				F20A30AD20A4634600394C0A /* StartingViewController.swift in Sources */,
 				F20A309820A440A800394C0A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
