@@ -20,11 +20,11 @@ class SortModel: SortModelProtocol {
         guard let methodForSort = self.methodForSort else { return [Double]() }
         var result = [Double]()
         let timeRandom = timeCountForSortArray(capacity: capacityOfArray, method: methodForSort, arrayType: .random(1, 1.0))
-        result.append(round(precision*timeRandom/precision))
-        let timeAsc = timeCountForSortArray(capacity: capacityOfArray, method: methodForSort, arrayType: .random(1, 1.0))
-        result.append(round(precision*timeAsc/precision))
-        let timeDesc = timeCountForSortArray(capacity: capacityOfArray, method: methodForSort, arrayType: .random(1, 1.0))
-        result.append(round(precision*timeDesc/precision))
+        result.append(round(precision*timeRandom)/precision)
+        let timeAsc = timeCountForSortArray(capacity: capacityOfArray, method: methodForSort, arrayType: .ascending(1, 1.0))
+        result.append(round(precision*timeAsc)/precision)
+        let timeDesc = timeCountForSortArray(capacity: capacityOfArray, method: methodForSort, arrayType: .descending(1, 1.0))
+        result.append(round(precision*timeDesc)/precision)
         
         return result
     }

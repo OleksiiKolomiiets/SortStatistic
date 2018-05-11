@@ -44,4 +44,3 @@ enum SortMethod: Int {
     }
 }
 
-var capacityOfArray = 10

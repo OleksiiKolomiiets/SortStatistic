@@ -55,18 +55,19 @@ class StatisticTableViewController: UITableViewController {
         let countOfArrayElments = self.countOfArrayElments
             else { return tableView.dequeueReusableCell(withIdentifier: "statisticCell", for: indexPath) }
         
-        let mainQueue = DispatchQueue.main
+        let backgroundQueue = DispatchQueue.global()
         
                    
         self.sortModel.methodForSort = sortMethod
         self.sortModel.capacityOfArray = countOfArrayElments
-        mainQueue.async {
+        backgroundQueue.async {
             self.parentVC.progressBar.progress += 0.2
             cell.configure(
                 with: sortMethod,
                 rInfo: .random(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[0]) ,
                 aInfo: .ascending(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[1]),
                 dInfo: .descending(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[2]))
+            
         }
         return cell
     }
