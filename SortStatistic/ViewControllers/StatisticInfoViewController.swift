@@ -12,6 +12,7 @@ class StatisticInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        progressBar.progress = 0.0
         embededTVC?.countOfArrayElments = countOfArrayElments
     }
 
@@ -19,7 +20,7 @@ class StatisticInfoViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    @IBOutlet weak var progressBar: UIView!
+    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var containerView: UIView!
     var countOfArrayElments: Int?
     var embededTVC: StatisticTableViewController?
@@ -27,6 +28,7 @@ class StatisticInfoViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let embededTVC = segue.destination as? StatisticTableViewController {
             self.embededTVC = embededTVC
+            self.embededTVC?.parentVC = self
         }
     }
     

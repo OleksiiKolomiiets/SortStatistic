@@ -20,6 +20,7 @@ class StatisticTableViewController: UITableViewController {
     }
     var sortModel = SortModel()
     var countOfArrayElments: Int?
+    var parentVC: StatisticInfoViewController!
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,13 +54,20 @@ class StatisticTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "statisticCell", for: indexPath) as? StaticInfoTableViewCell, let sortMethod = SortMethod(rawValue: indexPath.row),
         let countOfArrayElments = self.countOfArrayElments
             else { return tableView.dequeueReusableCell(withIdentifier: "statisticCell", for: indexPath) }
+        
+        let mainQueue = DispatchQueue.main
+        
+                   
         self.sortModel.methodForSort = sortMethod
         self.sortModel.capacityOfArray = countOfArrayElments
-        cell.configure(
-            with: sortMethod,
-            rInfo: .random(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[0]) ,
-            aInfo: .ascending(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[1]),
-            dInfo: .descending(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[2]))
+        mainQueue.async {
+            self.parentVC.progressBar.progress += 0.2
+            cell.configure(
+                with: sortMethod,
+                rInfo: .random(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[0]) ,
+                aInfo: .ascending(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[1]),
+                dInfo: .descending(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[2]))
+        }
         return cell
     }
 
