@@ -26,7 +26,7 @@ enum ArrayType {
 }
 
 enum SortMethod: Int {
-    case insertSort = 0, quickSort, selection, buble, merge
+    case insertSort = 0, selection, buble, quickSort, merge
     
     var description: String {
         switch self {

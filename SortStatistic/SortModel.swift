@@ -8,13 +8,11 @@
 
 import Foundation
 
-class SortModel: SortModelProtocol {
+struct SortModel: SortModelProtocol {
     var capacityOfArray: Int = 10000
-    typealias resultingTime = (random: Int, asc: Int, desc: Int)
-    
     private var precision = 1000.0
-    
     var methodForSort: SortMethod?
+    
     
     var timeForSorting: [Double] {
         guard let methodForSort = self.methodForSort else { return [Double]() }
@@ -25,8 +23,8 @@ class SortModel: SortModelProtocol {
         result.append(round(precision*timeAsc)/precision)
         let timeDesc = timeCountForSortArray(capacity: capacityOfArray, method: methodForSort, arrayType: .descending(1, 1.0))
         result.append(round(precision*timeDesc)/precision)
+            return result.count > 0 ? result : [0.0, 0.0, 0.0]
         
-        return result
     }
     
     func timeCountForSortArray(capacity: Int, method: SortMethod, arrayType: ArrayType) -> Double {
@@ -35,77 +33,43 @@ class SortModel: SortModelProtocol {
         case .ascending(_, _) :
             arrayForSort = mergeSort(generateArray(of: capacity))
         case .descending(_, _) :
-            arrayForSort = Array(mergeSort(generateArray(of: capacity)).reversed())
+            arrayForSort = mergeSort(generateArray(of: capacity)).reversed()
         case .random(_, _) :
             arrayForSort = generateArray(of: capacity)
         }
         var counter = 0
         let iterations = 1
-        
-        switch method {
-        case .insertSort:
-            let currentDate = Date()
-            while counter != iterations {
-                sort(by: method, arrayForSort)
-                counter += 1
-            }
-            return -(currentDate.timeIntervalSinceNow/Double(iterations))
-        case .quickSort:
-            let currentDate = Date()
-            while counter != iterations {
-                sort(by: method, arrayForSort)
-                counter += 1
-            }
-            return -(currentDate.timeIntervalSinceNow/Double(iterations))
-        case .selection:
-            let currentDate = Date()
-            while counter != iterations {
-                sort(by: method, arrayForSort)
-                counter += 1
-            }
-            return -(currentDate.timeIntervalSinceNow/Double(iterations))
-        case .buble:
-            let currentDate = Date()
-            while counter != iterations {
-                sort(by: method, arrayForSort)
-                counter += 1
-            }
-            return -(currentDate.timeIntervalSinceNow/Double(iterations))
-        case .merge:
-            let currentDate = Date()
-            while counter != iterations {
-                sort(by: method, arrayForSort)
-                counter += 1
-            }
-            return -(currentDate.timeIntervalSinceNow/Double(iterations))
+        let currentDate = Date()
+        while counter != iterations {
+            sort(by: method, arrayForSort)
+            counter += 1
         }
+        return -(currentDate.timeIntervalSinceNow/Double(iterations))
     }
     
     private func sort(by method: SortMethod, _ array: [Int] ) -> [Int] {
-        var result = [Int]()
         switch method {
         case .insertSort:
-            result = insertSort(array, <)
+            return insertSort(array)
         case .quickSort:
-            result = quickSort(array)
+            return quickSort(array)
         case .selection:
-            result = selection(array)
+            return selection(array)
         case .buble:
-            result = buble(array)
+            return buble(array)
         case .merge:
-            result = mergeSort(array)
+            return mergeSort(array)
         }
-        return result
     }
     
-    private func insertSort<T>(_ array: [T], _ isOrderedBefore: (T, T) -> Bool) -> [T] {
+    private func insertSort(_ array: [Int]) -> [Int] {
         guard array.count > 1 else { return array }
         
         var a = array
         for x in 1..<a.count {
             var y = x
             let temp = a[y]
-            while y > 0 && isOrderedBefore(temp, a[y - 1]) {
+            while y > 0 && temp < a[y - 1] {
                 a[y] = a[y - 1]
                 y -= 1
             }
@@ -190,7 +154,7 @@ class SortModel: SortModelProtocol {
         return orderedPile
     }
     
-    func generateArray(of capasity: Int) -> [Int] {
+    private func generateArray(of capasity: Int) -> [Int] {
         var generatedArray: [Int] = []
         
         for _ in 0..<capasity {

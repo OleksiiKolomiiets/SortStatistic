@@ -24,53 +24,61 @@ class StatisticTableViewController: UITableViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        DispatchQueue.global().async {
+            UIView.animate(withDuration: 1, animations: {
+                self.makeStatisticSort(for: .insertSort)
+                self.makeStatisticSort(for: .selection)
+                self.makeStatisticSort(for: .buble)
+            })
+        }
+        OperationQueue().addOperation {
+            UIView.animate(withDuration: 1, animations: {
+                self.makeStatisticSort(for: .quickSort)
+                self.makeStatisticSort(for: .merge)
+            })
+        }
     }
 
+    private func makeStatisticSort(for method: SortMethod) {
+        DispatchQueue.main.sync {
+            guard let countOfArrayElments = self.countOfArrayElments else { return }
+            self.sortModel.capacityOfArray = countOfArrayElments
+        
+            self.sortModel.methodForSort = method
+            self.tableView.reloadRows(at: [IndexPath(row: method.rawValue, section: 0 )], with: UITableViewRowAnimation.automatic)
+            parentVC.progressBar.progress +=  0.2
+        }
+    }    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return capacityOfMethods
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "statisticCell", for: indexPath) as? StaticInfoTableViewCell, let sortMethod = SortMethod(rawValue: indexPath.row),
-        let countOfArrayElments = self.countOfArrayElments
-            else { return tableView.dequeueReusableCell(withIdentifier: "statisticCell", for: indexPath) }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "statisticCell", for: indexPath) as? StaticInfoTableViewCell else { return UITableViewCell() }
+        guard let countOfArrayElments = self.countOfArrayElments, let method = SortMethod(rawValue: indexPath.row) else { return UITableViewCell() }
         
-        let backgroundQueue = DispatchQueue.global()
+        let timeForSorting = self.sortModel.timeForSorting.isEmpty ? [0.0, 0.0, 0.0] : self.sortModel.timeForSorting
         
-                   
-        self.sortModel.methodForSort = sortMethod
-        self.sortModel.capacityOfArray = countOfArrayElments
-        backgroundQueue.async {
-            self.parentVC.progressBar.progress += 0.2
-            cell.configure(
-                with: sortMethod,
-                rInfo: .random(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[0]) ,
-                aInfo: .ascending(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[1]),
-                dInfo: .descending(self.sortModel.capacityOfArray, self.sortModel.timeForSorting[2]))
-            
-        }
+        cell.configure(
+            with: method,
+            rInfo: .random(countOfArrayElments, timeForSorting[0]) ,
+            aInfo: .ascending(countOfArrayElments, timeForSorting[1]),
+            dInfo: .descending(countOfArrayElments, timeForSorting[2]))
         return cell
     }
+    
+    
+    
 
 }
 
