@@ -18,6 +18,7 @@ class StaticInfoTableViewCell: UITableViewCell {
         randomSortedArrayInfoLable.text = rInfo.description
         ascSortedArrayInfoLable.text = aInfo.description
         descSortedArrayInfoLable.text = dInfo.description
+        
     }
 }
 

@@ -45,7 +45,8 @@ class StatisticTableViewController: UITableViewController {
             self.sortModel.capacityOfArray = countOfArrayElments
             self.sortModel.methodForSort = method
             self.tableView.reloadRows(at: [IndexPath(row: 0, section: method.rawValue )], with: UITableViewRowAnimation.automatic)
-            parentVC.progressBar.progress +=  Float(1/capacityOfMethods)
+            parentVC.progressBar.progress +=  0.2
+            parentVC.progressValue += 20
         }
     }
 
@@ -71,9 +72,11 @@ class StatisticTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 25))
-        view.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 0.3919670245)
         let label = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width, height: 25))
         label.text = SortMethod(rawValue: section)?.description ?? "default"
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        label.textAlignment = .center
         view.addSubview(label)
         return view
     }    
