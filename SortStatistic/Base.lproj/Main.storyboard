@@ -129,39 +129,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="statisticCell" rowHeight="128" id="SkP-h7-Wd2" customClass="StaticInfoTableViewCell" customModule="SortStatistic" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="128"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="statisticCell" rowHeight="112" id="SkP-h7-Wd2" customClass="StaticInfoTableViewCell" customModule="SortStatistic" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="112"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SkP-h7-Wd2" id="iRC-8M-QVW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="111.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="evl-DD-LBS">
-                                            <rect key="frame" x="16" y="11" width="343" height="106"/>
+                                            <rect key="frame" x="16" y="11" width="343" height="90"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="***Sort Method Name***" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtF-yb-jui">
-                                                    <rect key="frame" x="60" y="0.0" width="223.5" height="49"/>
-                                                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="NBW-ws-kw1">
-                                                    <rect key="frame" x="0.0" y="57" width="343" height="49"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NBW-ws-kw1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="90"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="***Rand result***" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dT-S6-r8c">
-                                                            <rect key="frame" x="0.0" y="0.0" width="131.5" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="24.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="***Asc result***" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="35" translatesAutoresizingMaskIntoConstraints="NO" id="l6V-DB-ql9">
-                                                            <rect key="frame" x="0.0" y="20.5" width="119" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="32.5" width="343" height="25"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="***Desc result***" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzP-dm-zWZ">
-                                                            <rect key="frame" x="0.0" y="41" width="131" height="8"/>
+                                                            <rect key="frame" x="0.0" y="65.5" width="343" height="24.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -170,7 +164,6 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="NBW-ws-kw1" firstAttribute="top" secondItem="DtF-yb-jui" secondAttribute="bottom" constant="8" id="8a5-7y-UOT"/>
                                                 <constraint firstAttribute="trailing" secondItem="NBW-ws-kw1" secondAttribute="trailing" id="XvD-3f-cgo"/>
                                                 <constraint firstItem="NBW-ws-kw1" firstAttribute="leading" secondItem="evl-DD-LBS" secondAttribute="leading" id="fY6-82-wzL"/>
                                             </constraints>
@@ -187,7 +180,6 @@
                                     <outlet property="ascSortedArrayInfoLable" destination="l6V-DB-ql9" id="MSU-fk-cus"/>
                                     <outlet property="descSortedArrayInfoLable" destination="JzP-dm-zWZ" id="3wK-9X-a61"/>
                                     <outlet property="randomSortedArrayInfoLable" destination="5dT-S6-r8c" id="bfu-Kf-0G3"/>
-                                    <outlet property="titleOfSortMethodLable" destination="DtF-yb-jui" id="AzK-uh-P9U"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
