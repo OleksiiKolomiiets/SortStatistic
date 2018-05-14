@@ -46,7 +46,7 @@ class StatisticTableViewController: UITableViewController {
         
             self.sortModel.methodForSort = method
             self.tableView.reloadRows(at: [IndexPath(row: method.rawValue, section: 0 )], with: UITableViewRowAnimation.automatic)
-            parentVC.progressBar.progress +=  0.2
+            parentVC.progressBar.progress +=  Float(1/capacityOfMethods)
         }
     }    
     
